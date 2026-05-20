@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WizCode // Agencia de Diseño & Desarrollo Web</title>
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -14,7 +13,7 @@
             min-height: 100vh;
             padding-top: 90px; /* Espacio para que la barra fija no tape el contenido */
         }
-        /* Estilos de la barra de navegación inspirada en el logo */
+        /* Estilos de la barra de navegación */
         .navbar-wiz {
             background-color: rgba(15, 23, 42, 0.9) !important;
             backdrop-filter: blur(10px);
@@ -22,7 +21,7 @@
         }
         .navbar-brand img {
             height: 45px;
-            border-radius: 50%; /* Hace redondo tu logo para que calce perfecto */
+            border-radius: 50%; /* Hace redondo tu logo */
             border: 2px solid #0ea5e9;
         }
         .nav-link-wiz {
@@ -33,7 +32,7 @@
         .nav-link-wiz:hover {
             color: #0ea5e9 !important;
         }
-        /* Título principal con degradé tecnológico */
+        /* Título principal con degradé */
         .hero-title {
             font-size: 3.2rem;
             font-weight: 800;
@@ -189,10 +188,9 @@
 </div>
 
 <script>
-    // Tu API Key limpia e indestructible
-    const MI_LLAVE = 'AIzaSyCFNA-YX3Jh9-vV8rk1IW4xSAlhOMt_-_Q'; 
+    // Tu nueva clave directa y limpia
+    const MI_LLAVE = 'AIzaSyDXzY6NlOmRfp5QR_ZA42spjN99y0oNPuk'; 
     
-    // URL arreglada a la perfección
     const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
 
     const PERSONALIDAD = "Sos el WizBot, el asistente inteligente de la empresa WizCode. Tu misión es atender y conseguir los datos de contacto de potenciales clientes para Pablo (el dueño). Sos profesional, servicial y mágico. Reglas estrictas: 1. Si mencionan WordPress, Elementor o Bootstrap, di que son especialidades de la casa. 2. No des precios exactos. Di que cada proyecto es una pieza única de magia digital y que para un presupuesto exacto deben hablar con Pablo directamente. 3. Tu meta final siempre es pedirles su WhatsApp o Email para que Pablo los contacte. Responde siempre de forma muy concisa y directa.";
