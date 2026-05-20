@@ -187,10 +187,10 @@
     </div>
 </div>
 
+<script src="config.js"></script>
+
 <script>
-    // Tu nueva clave directa y limpia
-    const MI_LLAVE = 'AIzaSyDXzY6NlOmRfp5QR_ZA42spjN99y0oNPuk'; 
-    
+    // Usamos la variable MI_LLAVE que viene adentro de config.js
     const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
 
     const PERSONALIDAD = "Sos el WizBot, el asistente inteligente de la empresa WizCode. Tu misión es atender y conseguir los datos de contacto de potenciales clientes para Pablo (el dueño). Sos profesional, servicial y mágico. Reglas estrictas: 1. Si mencionan WordPress, Elementor o Bootstrap, di que son especialidades de la casa. 2. No des precios exactos. Di que cada proyecto es una pieza única de magia digital y que para un presupuesto exacto deben hablar con Pablo directamente. 3. Tu meta final siempre es pedirles su WhatsApp o Email para que Pablo los contacte. Responde siempre de forma muy concisa y directa.";
