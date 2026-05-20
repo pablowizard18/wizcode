@@ -194,4 +194,57 @@
     // URL corregida sin el error de tipeo
     const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
 
-    const PERSONALIDAD = "Sos el WizBot, el asistente inteligente de la empresa WizCode. Tu misión es atender y conseguir los datos de contacto de potenciales clientes para Pablo (el dueño). Sos profesional, servicial y mágico. Reglas estrictas: 1. Si mencionan WordPress, Elementor o Bootstrap, di que son especialidades de la casa. 2. No des precios exactos. Di que cada proyecto es una pieza única de magia digital y que para un presupuesto exacto deben hablar con Pablo directamente. 3. Tu meta final siempre es pedirles su WhatsApp o Email para que
+    const PERSONALIDAD = "Sos el WizBot, el asistente inteligente de la empresa WizCode. Tu misión es atender y conseguir los datos de contacto de potenciales clientes para Pablo (el dueño). Sos profesional, servicial y mágico. Reglas estrictas: 1. Si mencionan WordPress, Elementor o Bootstrap, di que son especialidades de la casa. 2. No des precios exactos. Di que cada proyecto es una pieza única de magia digital y que para un presupuesto exacto deben hablar con Pablo directamente. 3. Tu meta final siempre es pedirles su WhatsApp o Email para que Pablo los contacte. Responde siempre de forma muy concisa y directa.";
+
+    async function enviarMensaje() {
+        const input = document.getElementById('userInput');
+        const chat = document.getElementById('chatContainer');
+        const texto = input.value.trim();
+        if(!texto) return;
+
+        chat.innerHTML += `<div class="msg user-msg"><b>Vos:</b> ${texto}</div>`;
+        input.value = '';
+        chat.scrollTop = chat.scrollHeight;
+
+        const loadingId = 'load-' + Date.now();
+        chat.innerHTML += `<div class="msg bot-msg" id="${loadingId}">✨ <b>WizBot:</b> Procesando tu idea...</div>`;
+        chat.scrollTop = chat.scrollHeight;
+
+        try {
+            const payload = {
+                contents: [{
+                    parts: [{ text: `${PERSONALIDAD}\n\nMensaje del cliente actual: ${texto}` }]
+                }]
+            };
+
+            const respuesta = await fetch(URL_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await respuesta.json();
+            
+            if (data.error) throw new Error(data.error.message);
+
+            if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
+                let textoBot = data.candidates[0].content.parts[0].text;
+                textoBot = textoBot.split('**').join('<b>').split('\n').join('<br>');
+                document.getElementById(loadingId).innerHTML = `✨ <b>WizBot:</b> ${textoBot}`;
+            } else {
+                document.getElementById(loadingId).innerHTML = `✨ <b>WizBot:</b> Entendido. ¿Me dejarías un teléfono de contacto para que Pablo te asesore mejor?`;
+            }
+
+        } catch (error) {
+            console.error(error);
+            document.getElementById(loadingId).innerHTML = `<span class="text-danger">❌ Error de conexión. Reintentá.</span>`;
+        }
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    document.getElementById('userInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') enviarMensaje();
+    });
+</script>
+</body>
+</html>
