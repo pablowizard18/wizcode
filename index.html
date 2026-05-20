@@ -11,21 +11,54 @@
             color: #f8fafc;
             font-family: system-ui, -apple-system, sans-serif;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding-top: 90px; /* Espacio para que la barra fija no tape el contenido */
         }
+        /* Estilos de la barra de navegación inspirada en el logo */
+        .navbar-wiz {
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e293b;
+        }
+        .navbar-brand img {
+            height: 45px;
+            border-radius: 50%; /* Hace redondo tu logo para que calce perfecto */
+            border: 2px solid #0ea5e9;
+        }
+        .nav-link-wiz {
+            color: #94a3b8 !important;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link-wiz:hover {
+            color: #0ea5e9 !important;
+        }
+        /* Título principal con degradé tecnológico */
         .hero-title {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            background: linear-gradient(to right, #3b82f6, #a855f7);
+            background: linear-gradient(to right, #0ea5e9, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        /* NUEVO: Color más claro para el eslogan superior */
+        .hero-slogan {
+            color: #e2e8f0; /* Un blanco grisáceo claro y legible */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        /* NUEVO: Color mucho más claro y legible para la descripción */
+        .hero-description {
+            font-size: 1.25rem;
+            color: #f1f5f9; /* Texto claro para alto contraste */
+            margin-bottom: 2rem;
         }
         .badge-tech {
             background-color: #1e293b;
             border: 1px solid #334155;
-            color: #3b82f6;
+            color: #0ea5e9;
             font-weight: 600;
             padding: 8px 16px;
             border-radius: 50px;
@@ -33,17 +66,18 @@
             margin-bottom: 8px;
             display: inline-block;
         }
+        /* Caja del Chatbot */
         .chat-card {
             background: #1e293b;
-            border: 1px solid #3b82f6;
+            border: 1px solid #10b981; /* Borde verde más intenso */
             border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
             overflow: hidden;
         }
         .chat-header {
-            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            background: linear-gradient(135deg, #0284c7, #0f766e);
             padding: 15px 20px;
-            border-bottom: 1px solid #3b82f6;
+            border-bottom: 1px solid #0ea5e9;
         }
         .chat-box {
             height: 380px;
@@ -60,7 +94,7 @@
             line-height: 1.4;
         }
         .user-msg {
-            background: #2563eb;
+            background: #0284c7;
             color: white;
             margin-left: auto;
             border-bottom-right-radius: 2px;
@@ -73,7 +107,7 @@
             border: 1px solid #334155;
         }
         .btn-magic {
-            background: linear-gradient(to right, #2563eb, #7c3aed);
+            background: linear-gradient(to right, #0284c7, #10b981);
             border: none;
             color: white;
             font-weight: 600;
@@ -81,21 +115,43 @@
         }
         .btn-magic:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
             color: white;
         }
     </style>
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark navbar-wiz fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#">
+            <img src="logo.jpg" alt="WizCode Logo">
+            <span style="letter-spacing: 1px;">WIZCODE</span>
+        </a>
+        <button class="navbar-expand-lg navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav gap-3">
+                <li class="nav-item"><a class="nav-link nav-link-wiz active" href="#">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-wiz" href="#">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-wiz" href="#">Portafolio</a></li>
+                <li class="nav-item">
+                    <a class="btn btn-magic btn-sm px-3 py-2 rounded-pill" href="#chatContainer">Consultar IA ✨</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container my-5">
     <div class="row align-items-center g-5">
         
         <div class="col-lg-6">
-            <span class="text-primary fw-bold text-uppercase tracking-wider">Bienvenido al Futuro Digital</span>
+            <span class="hero-slogan">Tecnología • Creatividad • Naturaleza</span>
             <h1 class="hero-title mt-2 mb-4">WizCode Studio</h1>
-            <p class="fs-5 text-muted mb-4">
-                Creamos páginas web de alto impacto, únicas y optimizadas para llevar tu negocio al siguiente nivel. Llevamos tus ideas al código con precisión y velocidad.
+            <p class="hero-description">
+                Creamos páginas web de alto impacto, únicas y optimizadas para llevar tu negocio al siguiente nivel. Fusionamos la fluidez de la naturaleza con la precisión del código.
             </p>
             
             <div class="mb-4">
@@ -115,7 +171,7 @@
                 
                 <div class="chat-box" id="chatContainer">
                     <div class="msg bot-msg">
-                        ✨ <b>WizBot:</b> ¡Hola! Soy el asistente inteligente de <b>WizCode</b>. ¿Estás buscando diseñar una página web o potenciar tu negocio con WordPress y Elementor? Contame qué tenés en mente.
+                        ✨ <b>WizBot:</b> ¡Hola! Soy el asistente inteligente de <b>WizCode</b>. ¿Estás buscando diseñar una página web o potenciar tu negocio? Contame qué tenés en mente.
                     </div>
                 </div>
                 
@@ -132,11 +188,8 @@
 </div>
 
 <script src="config.js"></script>
-
 <script>
-    // La URL consume automáticamente la constante MI_LLAVE declarada en config.js
-    const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
-
+    const URL_API = `https://genergenerativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
     const PERSONALIDAD = "Sos el WizBot, el asistente inteligente de la empresa WizCode. Tu misión es atender y conseguir los datos de contacto de potenciales clientes para Pablo (el dueño). Sos profesional, servicial y mágico. Reglas estrictas: 1. Si mencionan WordPress, Elementor o Bootstrap, di que son especialidades de la casa. 2. No des precios exactos. Di que cada proyecto es una pieza única de magia digital y que para un presupuesto exacto deben hablar con Pablo directamente. 3. Tu meta final siempre es pedirles su WhatsApp o Email para que Pablo los contacte. Responde siempre de forma muy concisa y directa.";
 
     async function enviarMensaje() {
@@ -168,9 +221,7 @@
 
             const data = await respuesta.json();
             
-            if (data.error) {
-                throw new Error(data.error.message);
-            }
+            if (data.error) throw new Error(data.error.message);
 
             if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
                 let textoBot = data.candidates[0].content.parts[0].text;
@@ -191,6 +242,5 @@
         if (e.key === 'Enter') enviarMensaje();
     });
 </script>
-
 </body>
 </html>
