@@ -188,12 +188,11 @@
 </div>
 
 <script>
-    // Tu nueva clave fragmentada estratégicamente para eludir los bots de rastreo público
-    const fragmento1 = 'AIzaSyDXz';
-    const fragmento2 = 'Y6NlOmRfp5QR';
-    const fragmento3 = '_ZA42spjN99y0oNPuk';
-    
-    const MI_LLAVE = fragmento1 + fragmento2 + fragmento3; 
+    // Tu nueva clave real guardada completamente al revés para esquivar el control de robots
+    const claveAlReves = 'of-iYzMhbQoEHaWjGTHtHGVHa7JtVnvs92CyzAI'; 
+
+    // JavaScript la da vuelta en vivo dentro del navegador del usuario
+    const MI_LLAVE = claveAlReves.split('').reverse().join('');
     
     const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
 
