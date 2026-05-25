@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html class="light" lang="es">
+<html class="dark scroll-smooth" lang="es">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>WizCode — Web Design & Development</title>
+    <title>WizCode — Web Design & Development Premium</title>
+    <meta name="description" content="Estudio de desarrollo y diseño web de alto impacto. Creamos plataformas exclusivas a medida.">
+    
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "primary": "#2563eb",
-                        "secondary": "#555f6f",
-                        "surface": "#f8f9fa",
-                        "on-surface": "#191c1d",
-                        "on-surface-variant": "#434655",
-                        "outline-variant": "#c3c6d7",
-                        "primary-container": "#dbe1ff"
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
-                    "spacing": {
-                        "base": "8px",
-                        "stack-lg": "80px",
-                        "stack-md": "48px",
-                        "stack-sm": "24px",
-                        "gutter": "24px",
-                        "container-max": "1280px"
+                    colors: {
+                        cyber: {
+                            dark: '#05070a',    
+                            card: '#0c121d',    
+                            violet: '#a855f7',  
+                            cyan: '#22d3ee',    
+                            glow: '#0ea5e9'     
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
@@ -35,216 +48,245 @@
     </script>
     <style>
         body {
-            background-color: #ffffff;
-            scroll-behavior: smooth;
+            background-color: #05070a;
+            background-image:  
+                radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-attachment: fixed;
         }
-        .glass-header {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+
+        /* Efecto de puntos tecnológicos */
+        .dot-matrix {
+            background-image: radial-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
-        .hero-gradient {
-            background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.03) 0%, transparent 40%);
+
+        .glass {
+            background: rgba(12, 18, 29, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        /* Estilos personalizados para la caja del chat */
-        .chat-box-container {
-            height: 350px;
-            overflow-y: auto;
+
+        .text-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+
+        .cyber-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 4px;
+
+        .cyber-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
         }
+
+        .cyber-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
     </style>
 </head>
-<body class="font-sans text-on-surface">
+<body class="font-sans text-slate-300 antialiased overflow-x-hidden dot-matrix">
 
-<header class="bg-surface/80 glass-header border-b border-outline-variant/30 top-0 sticky z-50">
-    <nav class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto w-full">
-        <div class="text-2xl font-extrabold tracking-tighter text-on-surface">
-            <span class="text-[#191c1d]">Wiz</span><span class="text-[#2563eb]">Code</span>
+<header class="fixed top-0 w-full z-50 transition-all duration-300 h-20 flex items-center glass">
+    <nav class="flex justify-between items-center px-8 max-w-7xl mx-auto w-full">
+        <div class="text-3xl font-display font-extrabold tracking-tighter text-white group cursor-pointer">
+            Wiz<span class="text-cyber-cyan group-hover:text-cyber-violet transition-colors duration-500">Code</span>
         </div>
-        <div class="hidden md:flex items-center gap-6">
-            <a class="text-secondary hover:text-primary transition-colors duration-300 text-sm font-semibold uppercase tracking-widest" href="#services">Servicios</a>
-            <a class="text-secondary hover:text-primary transition-colors duration-300 text-sm font-semibold uppercase tracking-widest" href="#work">Portfolio</a>
-            <a class="text-secondary hover:text-primary transition-colors duration-300 text-sm font-semibold uppercase tracking-widest" href="#contact">Consultar IA ✨</a>
-            <a class="bg-primary text-white px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:opacity-80 transition-all active:scale-95" href="#contact">
-                Hablemos
+        <div class="hidden md:flex items-center gap-10 text-[10px] uppercase tracking-[0.2em] font-bold">
+            <a class="text-slate-400 hover:text-white transition-colors" href="#services">Servicios</a>
+            <a class="text-slate-400 hover:text-white transition-colors" href="#work">Portfolio</a>
+            <a class="text-cyber-cyan border-b border-cyber-cyan/0 hover:border-cyber-cyan transition-all" href="#contact">Asistente IA</a>
+            <a class="cyber-button bg-gradient-to-r from-cyber-violet to-cyber-cyan text-cyber-dark px-8 py-3 rounded-full text-zinc-950 font-black shadow-[0_0_20px_rgba(34,211,238,0.3)]" href="#contact">
+                Crear Proyecto <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
         </div>
     </nav>
 </header>
 
 <main>
-    <section class="hero-gradient pt-stack-lg pb-stack-lg px-gutter">
-        <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center min-h-[500px]">
-            <div class="lg:col-span-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-on-surface mb-stack-sm tracking-tight leading-none">
-                    Convertimos código complejo en magia digital.
+    <section class="relative min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-cyber-violet/20 rounded-full blur-[150px] animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyber-cyan/20 rounded-full blur-[150px] animate-pulse-slow"></div>
+        
+        <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
+            <div class="animate-float">
+                <span class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 text-cyber-cyan text-[10px] font-bold mb-8 bg-white/5 uppercase tracking-[0.3em] backdrop-blur-md">
+                    <span class="w-2 h-2 bg-cyber-cyan rounded-full animate-ping"></span> Disponibilidad Inmediata
+                </span>
+                <h1 class="text-6xl md:text-[90px] font-display font-extrabold text-white mb-8 tracking-tighter leading-[0.9]">
+                    Creamos <span class="text-gradient">Milagros</span><br>Digitales.
                 </h1>
-                <p class="text-lg md:text-xl text-on-surface-variant mb-stack-md max-w-2xl">
-                    Diseño web de alto impacto, WordPress experto y soluciones a medida con Bootstrap, Tailwind y desarrollo SCSS.
+                <p class="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                    Elevamos marcas a través de interfaces galácticas y desarrollo de <span class="text-white font-medium">alto rendimiento.</span> No hacemos simples páginas web, creamos activos digitales para tu negocio.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a class="bg-primary text-white px-8 py-5 text-center text-sm font-semibold uppercase tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/20" href="#contact">
-                        Consultar Asistente IA ✨
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <a class="cyber-button bg-white text-cyber-dark px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-2xl" href="#contact">
+                        🚀 Iniciar Proyecto
                     </a>
-                    <a class="border border-slate-300 px-8 py-5 text-center text-sm font-semibold uppercase tracking-widest hover:bg-slate-50 transition-all" href="#work">
-                        Ver mi Portfolio
+                    <a class="glass border border-white/10 px-10 py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:bg-white/5 transition-all" href="#work">
+                        Explorar Portfolio
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-stack-lg bg-slate-50 px-gutter" id="services">
-        <div class="max-w-container-max mx-auto">
-            <div class="mb-stack-md">
-                <span class="text-primary text-sm font-semibold uppercase tracking-widest mb-2 block">Expertise</span>
-                <h2 class="text-3xl font-bold text-on-surface">Servicios Profesionales</h2>
+    <section class="py-32 relative" id="services">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
+                <div>
+                    <span class="text-cyber-violet font-mono text-sm tracking-widest mb-4 block">/01 SERVICIOS</span>
+                    <h2 class="text-5xl font-display font-bold text-white tracking-tighter">Soluciones de Próxima <br> Generación.</h2>
+                </div>
+                <p class="text-slate-500 max-w-xs text-sm leading-relaxed">Combinamos diseño intuitivo con arquitecturas escalables para dominar el mercado digital.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-                <div class="border border-outline-variant/30 p-10 bg-white hover:border-primary/50 transition-colors group shadow-sm">
-                    <div class="w-12 h-12 flex items-center justify-center bg-blue-50 text-primary mb-6">
-                        <span class="material-symbols-outlined">polyline</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">WordPress & Elementor Pro</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">
-                        Creamos plataformas autoadministrables robustas, landing pages y directorios profesionales totalmente optimizados y adaptados a tu marca.
-                    </p>
-                </div>
-                <div class="border border-outline-variant/30 p-10 bg-white hover:border-primary/50 transition-colors group shadow-sm">
-                    <div class="w-12 h-12 flex items-center justify-center bg-blue-50 text-primary mb-6">
-                        <span class="material-symbols-outlined">code</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Desarrollo a Medida (SCSS / Tailwind)</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">
-                        Estructuras limpias y código semántico utilizando Flexbox, Grid y preprocesadores modernos para garantizar adaptabilidad móvil absoluta.
-                    </p>
-                </div>
-                <div class="border border-outline-variant/30 p-10 bg-white hover:border-primary/50 transition-colors group shadow-sm">
-                    <div class="w-12 h-12 flex items-center justify-center bg-blue-50 text-primary mb-6">
-                        <span class="material-symbols-outlined">monitoring</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Optimización & SEO Técnico</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">
-                        Aceleramos la velocidad de carga de tu sitio web y estructuramos metadatos para escalar a las primeras posiciones de Google.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-stack-lg px-gutter" id="work">
-        <div class="max-w-container-max mx-auto">
-            <div class="mb-stack-md">
-                <span class="text-primary text-sm font-semibold uppercase tracking-widest mb-2 block">Trabajo</span>
-                <h2 class="text-3xl font-bold text-on-surface">Proyectos Seleccionados</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="group cursor-pointer border border-slate-100 p-4 bg-white shadow-sm">
-                    <div class="overflow-hidden bg-slate-100 mb-4 aspect-[16/10]">
-                        <div class="w-full h-full flex items-center justify-center bg-slate-900 text-white font-mono text-lg">Alquileres Costa Esmeralda (En Desarrollo)</div>
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-xs text-primary font-bold uppercase tracking-widest mb-1">Web Platform / Real Estate</p>
-                            <h4 class="text-xl font-bold">Portal de Alquileres Vacacionales</h4>
-                        </div>
-                        <span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors">arrow_outward</span>
-                    </div>
-                </div>
-                <div class="group cursor-pointer border border-slate-100 p-4 bg-white shadow-sm">
-                    <div class="overflow-hidden bg-slate-100 mb-4 aspect-[16/10]">
-                        <div class="w-full h-full flex items-center justify-center bg-blue-900 text-white font-mono text-lg">Mawi Piscinas Dashboard</div>
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-xs text-primary font-bold uppercase tracking-widest mb-1">Brand Visibility & Marketing</p>
-                            <h4 class="text-xl font-bold">Mawi Piscinas Digital Hub</h4>
-                        </div>
-                        <span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors">arrow_outward</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-stack-lg bg-slate-100 px-gutter" id="contact">
-        <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            <div class="lg:col-span-5">
-                <span class="text-primary text-sm font-semibold uppercase tracking-widest mb-2 block">Colaboración</span>
-                <h2 class="text-3xl font-bold text-on-surface mb-4">¿Tenés una idea en mente?</h2>
-                <p class="text-on-surface-variant text-base mb-6 leading-relaxed">
-                    Chatiá en vivo con nuestro asistente virtual inteligente. Contale qué tipo de web necesitás y te armará una propuesta inicial al instante.
-                </p>
-                <div class="space-y-4 text-slate-600">
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary">mail</span>
-                        <span class="text-sm">contacto@wizcode.dev</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+                <div class="glass p-12 hover:bg-white/5 transition-all duration-700 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 text-6xl font-display font-black text-white/5 group-hover:text-cyber-cyan/10 transition-colors">01</div>
+                    <i class="fa-brands fa-wordpress text-4xl text-cyber-cyan mb-8 block transition-transform group-hover:-rotate-12"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-white">WordPress Premium</h3>
+                    <p class="text-slate-400 font-light leading-relaxed">Landing pages y ecosistemas corporativos bajo Elementor Pro y arquitecturas optimizadas para conversión.</p>
+                </div>
+                <div class="glass p-12 hover:bg-white/5 transition-all duration-700 group relative overflow-hidden border-x border-white/5">
+                    <div class="absolute top-0 right-0 p-8 text-6xl font-display font-black text-white/5 group-hover:text-cyber-violet/10 transition-colors">02</div>
+                    <i class="fa-solid fa-layer-group text-4xl text-cyber-violet mb-8 block transition-transform group-hover:scale-110"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Tailwind & SCSS</h3>
+                    <p class="text-slate-400 font-light leading-relaxed">Desarrollo Frontend de ultra-velocidad y código semántico con las últimas tecnologías estéticas del mercado.</p>
+                </div>
+                <div class="glass p-12 hover:bg-white/5 transition-all duration-700 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 text-6xl font-display font-black text-white/5 group-hover:text-cyber-cyan/10 transition-colors">03</div>
+                    <i class="fa-solid fa-gauge-high text-4xl text-cyber-cyan mb-8 block transition-transform group-hover:translate-x-2"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Rendimiento Core</h3>
+                    <p class="text-slate-400 font-light leading-relaxed">WPO (Web Performance Optimization) extremo para alcanzar la máxima velocidad de carga en Google.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-cyber-dark/50" id="work">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-20 text-center md:text-left">
+                <span class="text-cyber-cyan font-mono text-sm tracking-widest mb-4 block">/02 SELECCIÓN</span>
+                <h2 class="text-5xl font-display font-bold text-white tracking-tighter italic">Proyectos de Éxito.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="group relative">
+                    <div class="overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[16/11] relative mb-6 border border-white/10 shadow-2xl">
+                        <img src="./portfolio-mawi.JPG" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-70 transition-all duration-1000 ease-out" alt="Mawi Piscinas">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark via-transparent to-transparent"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <span class="text-cyber-cyan text-[10px] font-black uppercase tracking-[0.3em] bg-cyber-cyan/10 px-4 py-2 rounded-full backdrop-blur-md border border-cyber-cyan/30">Optimización Experta</span>
+                            <h4 class="text-3xl font-display font-bold text-white mt-4">Mawi Piscinas Hub</h4>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary">location_on</span>
-                        <span class="text-sm">Pinamar, Buenos Aires, Argentina</span>
+                    <div class="flex justify-between items-center px-4">
+                        <p class="text-slate-500 font-light italic">UI Design & Desarrollo Responsivo</p>
+                        <a href="https://pablowizard18.github.io/mawi_piscinas/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-cyber-violet hover:to-cyber-cyan hover:text-black hover:border-transparent transition-all duration-300">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group relative md:mt-24">
+                    <div class="overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[16/11] relative mb-6 border border-white/10 shadow-2xl">
+                        <img src="./portfolio-cafe.JPG" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-1000 ease-out" alt="Café del Hechicero">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark via-transparent to-transparent"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <span class="text-cyber-violet text-[10px] font-black uppercase tracking-[0.3em] bg-cyber-violet/10 px-4 py-2 rounded-full backdrop-blur-md border border-cyber-violet/30">Landing Premium</span>
+                            <h4 class="text-3xl font-display font-bold text-white mt-4">Café & Barismo</h4>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-4">
+                        <p class="text-slate-500 font-light italic">Micro-interacciones & UX Superior</p>
+                        <a href="https://pablowizard18.github.io/cafedelhechicero/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-cyber-violet hover:to-cyber-cyan hover:text-black hover:border-transparent transition-all duration-300">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 relative" id="contact">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-20">
+            <div class="lg:col-span-5 flex flex-col justify-center">
+                <span class="text-cyber-cyan font-mono text-sm tracking-widest mb-6 block">/03 CONTACTO</span>
+                <h2 class="text-6xl font-display font-bold text-white tracking-tighter mb-8 italic">¿Listo para <br><span class="text-gradient">Avanzar?</span></h2>
+                <p class="text-slate-400 text-lg mb-10 font-light leading-relaxed">
+                    Mi asistente virtual entrenado con Gemini está listo para escucharte. <span class="text-white">Probá la potencia de la IA aplicada a tu negocio.</span>
+                </p>
+                <div class="space-y-6">
+                    <div class="group flex items-center gap-6 p-4 rounded-2xl hover:bg-white/5 transition-all">
+                        <div class="w-12 h-12 bg-cyber-cyan/10 rounded-full flex items-center justify-center text-cyber-cyan group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+                        <span class="text-sm font-bold tracking-widest">contacto@wizcode.dev</span>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-7">
-                <div class="bg-white border border-slate-200 shadow-xl overflow-hidden rounded-lg">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-5 flex items-center justify-between border-b border-blue-700">
-                        <div class="flex items-center gap-3">
-                            <span class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
-                            <h3 class="text-white font-bold text-base tracking-wide">WizBot Asistente Inteligente</h3>
+                <div class="glass border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden rounded-[2.5rem]">
+                    <div class="bg-zinc-900/50 p-6 flex items-center justify-between border-b border-white/5">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
                         </div>
-                        <span class="text-blue-200 text-xs font-mono uppercase tracking-widest">Gemini Engine</span>
+                        <h3 class="text-slate-400 font-mono text-[10px] uppercase tracking-[0.3em]">WizBot_Enlace_Neural_v2.5</h3>
                     </div>
                     
-                    <div class="chat-box-container custom-scrollbar p-6 bg-slate-50 space-y-4 flex flex-col" id="chatContainer">
-                        <div class="bg-white border border-slate-200 text-slate-800 px-4 py-3 max-w-[85%] rounded-lg shadow-sm self-start text-sm leading-relaxed">
-                            ✨ <b>WizBot:</b> ¡Hola! Soy el asistente inteligente de <b>WizCode</b>. ¿Estás buscando diseñar una página web corporativa, un portal inmobiliario o potenciar tu negocio? Contame tu idea.
+                    <div class="chat-box-container custom-scrollbar p-8 bg-black/20 space-y-6 flex flex-col h-[450px]" id="chatContainer">
+                        <div class="bg-zinc-800/80 backdrop-blur-md border border-white/5 text-slate-200 px-6 py-4 max-w-[85%] rounded-[20px] rounded-tl-none shadow-xl self-start text-sm leading-relaxed">
+                            👋 <b>WizBot:</b> Bienvenido a la interfaz de WizCode. Estoy procesando ideas para tu próxima plataforma. ¿En qué puedo ayudarte a brillar hoy?
                         </div>
                     </div>
                     
-                    <div class="p-4 bg-white border-t border-slate-200">
-                        <div class="flex gap-3">
-                            <input class="flex-1 border border-slate-300 px-4 py-3 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white outline-none transition-all text-sm rounded" id="userInput" placeholder="Escribí tu consulta acá..." type="text" autocomplete="off">
-                            <button class="bg-primary text-white px-6 py-3 font-semibold text-sm uppercase tracking-wider hover:bg-blue-700 transition-all active:scale-95 shadow-md" onclick="enviarMensaje()">
-                                Enviar ✨
+                    <div class="p-6 bg-zinc-900/50 border-t border-white/5 backdrop-blur-md">
+                        <div class="relative group">
+                            <input class="w-full bg-black/40 border border-white/10 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-cyber-cyan transition-all text-sm placeholder:text-slate-700" id="userInput" placeholder="Describí tu proyecto aquí..." type="text">
+                            <button class="absolute right-3 top-3 bg-white text-black font-black px-6 py-2 rounded-xl text-[10px] uppercase tracking-widest hover:bg-cyber-cyan transition-all active:scale-90" onclick="enviarMensaje()">
+                                Enviar <i class="fa-solid fa-bolt ml-1"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </main>
 
-<footer class="bg-white border-t border-slate-200 py-8 px-gutter">
-    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-xl font-extrabold text-on-surface"><span class="text-[#191c1d]">Wiz</span><span class="text-[#2563eb]">Code</span></div>
-        <div class="text-sm text-slate-500">
-            © 2026 WizCode Studio — Crafting Digital Excellence.
+<footer class="py-20 border-t border-white/5 glass">
+    <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-10">
+        <div class="text-3xl font-display font-extrabold text-white">Wiz<span class="text-cyber-cyan">Code</span></div>
+        <div class="text-[10px] text-slate-500 font-bold tracking-[0.4em] uppercase text-center">
+            &copy; 2026 WizCode Studio — Diseñando Excelencia Digital.
         </div>
-        <div class="flex gap-6 text-sm text-slate-400">
-            <a class="hover:text-primary transition-colors" href="https://github.com/pablowizard18" target="_blank">GitHub</a>
-            <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+        <div class="flex gap-8">
+            <a class="text-slate-400 hover:text-white transition-all transform hover:-translate-y-1" href="https://github.com/pablowizard18" target="_blank"><i class="fa-brands fa-github text-xl"></i></a>
+            <a class="text-slate-400 hover:text-white transition-all transform hover:-translate-y-1" href="#"><i class="fa-brands fa-linkedin text-xl"></i></a>
         </div>
     </div>
 </footer>
 
 <script>
-    // Camuflaje de llave con guion medio para evadir filtros automáticos de escaneo en GitHub
     const claveCamuflada = 'AIzaSyC29svnVtJ7aHGUHTGjW-aHEoQbhMzYi-fo'; 
     const MI_LLAVE = claveCamuflada.replace('-', '');
-    
     const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
-
-    const PERSONALIDAD = "Sos el WizBot, el asistente inteligente de la empresa WizCode. Tu misión es atender y conseguir los datos de contacto de potenciales clientes para Pablo (el dueño). Sos profesional, servicial y mágico. Reglas estrictas: 1. Si mencionan WordPress, Elementor o Bootstrap, di que son especialidades de la casa. 2. No des precios exactos. Di que cada proyecto es una pieza única de magia digital y que para un presupuesto exacto deben hablar con Pablo directamente. 3. Tu meta final siempre es pedirles su WhatsApp o Email para que Pablo los contacte. Responde siempre de forma muy concisa y directa.";
+    const PERSONALIDAD = "Sos WizBot, el asistente inteligente de WizCode. Pablo es el fundador y desarrollador principal. Tu tono es profesional, tecnológico, servicial y amigable. Si el cliente menciona WordPress, Elementor, Bootstrap, Tailwind o SCSS, deciles que son las especialidades de la casa. Tu objetivo absoluto es pedirles un WhatsApp o Email para que Pablo se ponga en contacto con ellos y armar una propuesta a medida. Sé siempre conciso y directo.";
 
     async function enviarMensaje() {
         const input = document.getElementById('userInput');
@@ -252,64 +294,40 @@
         const texto = input.value.trim();
         if(!texto) return;
 
-        // Renderizar mensaje del usuario alineado a la derecha
-        chat.innerHTML += `<div class="bg-blue-600 text-white px-4 py-3 max-w-[85%] rounded-lg shadow-sm self-end text-sm leading-relaxed"><b>Vos:</b> ${texto}</div>`;
+        chat.innerHTML += `<div class="bg-gradient-to-r from-cyber-violet to-cyber-cyan text-zinc-950 font-bold px-6 py-4 max-w-[85%] rounded-[20px] rounded-tr-none shadow-2xl self-end text-sm leading-relaxed"><b>Vos:</b> ${texto}</div>`;
         input.value = '';
         chat.scrollTop = chat.scrollHeight;
 
         const loadingId = 'load-' + Date.now();
-        // Mensaje del bot cargando alineado a la izquierda
-        chat.innerHTML += `<div class="bg-white border border-slate-200 text-slate-800 px-4 py-3 max-w-[85%] rounded-lg shadow-sm self-start text-sm leading-relaxed" id="${loadingId}">✨ <b>WizBot:</b> Procesando tu idea...</div>`;
+        chat.innerHTML += `<div class="bg-zinc-800/80 border border-white/5 text-slate-400 px-6 py-4 max-w-[85%] rounded-[20px] rounded-tl-none shadow-xl self-start text-sm italic" id="${loadingId}">✨ Procesando...</div>`;
         chat.scrollTop = chat.scrollHeight;
 
         try {
-            const payload = {
-                contents: [{
-                    parts: [{ text: `${PERSONALIDAD}\n\nMensaje del cliente actual: ${texto}` }]
-                }]
-            };
-
-            const respuesta = await fetch(URL_API, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
+            const payload = { contents: [{ parts: [{ text: `${PERSONALIDAD}\n\nCliente: ${texto}` }] }] };
+            const respuesta = await fetch(URL_API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
             const data = await respuesta.json();
             
-            if (data.error) throw new Error(data.error.message);
-
-            if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
+            if (data && data.candidates[0].content.parts[0]) {
                 let textoBot = data.candidates[0].content.parts[0].text;
-                // Formatear negritas y saltos de línea para burbujas HTML
                 textoBot = textoBot.split('**').join('<b>').split('\n').join('<br>');
-                document.getElementById(loadingId).innerHTML = `✨ <b>WizBot:</b> ${textoBot}`;
-            } else {
-                document.getElementById(loadingId).innerHTML = `✨ <b>WizBot:</b> Entendido perfectamente. ¿Me dejarías un teléfono o email para que Pablo se comunique directamente con vos?`;
+                document.getElementById(loadingId).innerHTML = `<b>WizBot:</b> ${textoBot}`;
+                document.getElementById(loadingId).classList.remove('italic', 'text-slate-400');
             }
-
         } catch (error) {
-            console.error(error);
-            document.getElementById(loadingId).innerHTML = `<span class="text-red-600 font-semibold">❌ Error de conexión. Por favor reintentá en un instante.</span>`;
+            document.getElementById(loadingId).innerHTML = `❌ Error de red. Intentá nuevamente en un instante.`;
         }
         chat.scrollTop = chat.scrollHeight;
     }
 
-    document.getElementById('userInput').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') enviarMensaje();
-    });
+    document.getElementById('userInput').addEventListener('keypress', (e) => e.key === 'Enter' && enviarMensaje());
 
-    // Animación fluida de scroll para las secciones
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('opacity-100', 'translate-y-0');
-                entry.target.classList.remove('opacity-0', 'translate-y-10');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('opacity-100', 'translate-y-0');
         });
-    }, { threshold: 0.05 });
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('section > div').forEach(el => {
+    document.querySelectorAll('section').forEach(el => {
         el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
         observer.observe(el);
     });
