@@ -39,7 +39,7 @@
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
+                            '50%': { transform: 'translateY(-8px)' },
                         }
                     }
                 }
@@ -55,7 +55,6 @@
             background-attachment: fixed;
         }
 
-        /* Efecto de puntos tecnológicos */
         .dot-matrix {
             background-image: radial-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
@@ -98,7 +97,7 @@
 </head>
 <body class="font-sans text-slate-300 antialiased overflow-x-hidden dot-matrix">
 
-<header class="fixed top-0 w-full z-50 transition-all duration-300 h-20 flex items-center glass">
+<header class="fixed top-0 w-full z-[100] transition-all duration-300 h-20 flex items-center glass">
     <nav class="flex justify-between items-center px-8 max-w-7xl mx-auto w-full">
         <div class="text-3xl font-display font-extrabold tracking-tighter text-white group cursor-pointer">
             Wiz<span class="text-cyber-cyan group-hover:text-cyber-violet transition-colors duration-500">Code</span>
@@ -115,13 +114,14 @@
 </header>
 
 <main>
-    <section class="relative min-h-screen flex items-center justify-center px-6 pt-20">
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 pt-28 sm:pt-20">
         <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-cyber-violet/20 rounded-full blur-[150px] animate-pulse-slow"></div>
         <div class="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyber-cyan/20 rounded-full blur-[150px] animate-pulse-slow"></div>
         
         <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
             <div class="animate-float">
-                <span class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 text-cyber-cyan text-[10px] font-bold mb-8 bg-white/5 uppercase tracking-[0.3em] backdrop-blur-md">
+                <span class="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 text-cyber-cyan text-[10px] font-bold mt-12 sm:mt-0 mb-4 sm:mb-8 bg-white/5 uppercase tracking-[0.3em] backdrop-blur-md">
                     <span class="w-2 h-2 bg-cyber-cyan rounded-full animate-ping"></span> Disponibilidad Inmediata
                 </span>
                 <h1 class="text-6xl md:text-[90px] font-display font-extrabold text-white mb-8 tracking-tighter leading-[0.9]">
@@ -142,17 +142,27 @@
         </div>
     </section>
 
+    <!-- SERVICES SECTION -->
     <section class="py-32 relative" id="services">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-20 gap-8">
                 <div>
-                    <span class="text-cyber-violet font-mono text-sm tracking-widest mb-4 block"></span>
-                    <h2 class="text-5xl font-display font-bold text-white tracking-tighter">Servicios <br> Profesionales.</h2>
+                   
+                    <h2 class="text-5xl md:text-6xl font-display font-bold text-white tracking-tighter leading-none">
+                        Servicios <br><span class="text-gradient">Profesionales.</span>
+                    </h2>
                 </div>
-                <p class="text-slate-500 max-w-xs text-sm leading-relaxed">Combinamos diseño de vanguardia con arquitecturas escalables para potenciar tu negocio.</p>
+                
+                <div class="max-w-md border border-white/5 bg-gradient-to-br from-cyber-card to-cyber-dark/40 backdrop-blur-md p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:border-cyber-cyan/30 transition-all duration-500 group mt-4 lg:mt-0 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyber-cyan/50 via-transparent to-transparent"></div>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed font-light">
+                        <span class="text-cyber-cyan mr-2 font-mono text-xs animate-pulse">●</span> 
+                        Combinamos <span class="text-white font-medium group-hover:text-cyber-cyan transition-colors duration-300">diseño de vanguardia</span> con arquitecturas de alto rendimiento para transformar tu web en un <span class="text-white font-medium">activo digital.</span>
+                    </p>
+                </div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="glass p-12 hover:bg-white/5 transition-all duration-700 group relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-8 text-6xl font-display font-black text-white/5 group-hover:text-cyber-cyan/10 transition-colors">01</div>
                     <i class="fa-brands fa-wordpress text-4xl text-cyber-cyan mb-8 block transition-transform group-hover:-rotate-12"></i>
@@ -175,6 +185,7 @@
         </div>
     </section>
 
+    <!-- PORTFOLIO SECTION -->
     <section class="py-32 bg-cyber-dark/50" id="work">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-20 text-center md:text-left">
@@ -193,14 +204,14 @@
                         </div>
                     </div>
                     <div class="flex justify-between items-center px-4">
-                        <p class="text-slate-500 font-light italic">UI Design & Desarrollo Responsivo</p>
+                        <p class="text-slate-500 font-light italic">visite la pagina</p>
                         <a href="https://pablowizard18.github.io/mawi_piscinas/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-cyber-violet hover:to-cyber-cyan hover:text-black hover:border-transparent transition-all duration-300">
                             <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="group relative md:mt-24">
+                <div class="group relative">
                     <div class="overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[16/11] relative mb-6 border border-white/10 shadow-2xl">
                         <img src="./portfolio-cafe.JPG" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-1000 ease-out" alt="Café del Hechicero">
                         <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark via-transparent to-transparent"></div>
@@ -210,7 +221,7 @@
                         </div>
                     </div>
                     <div class="flex justify-between items-center px-4">
-                        <p class="text-slate-500 font-light italic">Micro-interacciones & UX Superior</p>
+                        <p class="text-slate-500 font-light italic">visite la pagina</p>
                         <a href="https://pablowizard18.github.io/cafedelhechicero/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-cyber-violet hover:to-cyber-cyan hover:text-black hover:border-transparent transition-all duration-300">
                             <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
                         </a>
@@ -220,12 +231,16 @@
         </div>
     </section>
 
+    <!-- CONTACT & CHATBOX SECTION -->
     <section class="py-32 relative" id="contact">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-20">
             
             <div class="lg:col-span-5 flex flex-col justify-center">
                 <span class="text-cyber-cyan font-mono text-sm tracking-widest mb-6 block"></span>
-                <h2 class="text-6xl font-display font-bold text-white tracking-tighter mb-8 italic">¿Tenés una <br><span class="text-gradient">Idea?</span></h2>
+                <!-- Arreglado acá: sin italic y con tracking-normal para que respiren los signos de pregunta -->
+                <h2 class="text-5xl md:text-6xl font-display font-bold text-white tracking-normal mb-8">
+                    ¿Tenés una <br><span class="text-gradient">Idea?</span>
+                </h2>
                 <p class="text-slate-400 text-lg mb-10 font-light leading-relaxed">
                     Mi asistente virtual entrenado con Gemini está listo para escucharte. <span class="text-white">Contale qué necesitás y te armará una propuesta al instante.</span>
                 </p>
@@ -250,7 +265,7 @@
                         <h3 class="text-slate-400 font-mono text-[10px] uppercase tracking-[0.3em]">WizBot_Enlace_Neural_v2.5</h3>
                     </div>
                     
-                    <div class="chat-box-container custom-scrollbar p-8 bg-black/20 space-y-6 flex flex-col h-[450px]" id="chatContainer">
+                    <div class="chat-box-container custom-scrollbar p-8 bg-black/20 space-y-6 flex flex-col h-[450px] overflow-y-auto" id="chatContainer">
                         <div class="bg-zinc-800/80 backdrop-blur-md border border-white/5 text-slate-200 px-6 py-4 max-w-[85%] rounded-[20px] rounded-tl-none shadow-xl self-start text-sm leading-relaxed">
                             👋 <b>WizBot:</b> Bienvenido a la interfaz de WizCode. Estoy procesando ideas para tu próxima plataforma. ¿En qué puedo ayudarte a brillar hoy?
                         </div>
@@ -258,7 +273,7 @@
                     
                     <div class="p-6 bg-zinc-900/50 border-t border-white/5 backdrop-blur-md">
                         <div class="relative group">
-                            <input class="w-full bg-black/40 border border-white/10 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-cyber-cyan transition-all text-sm placeholder:text-slate-700" id="userInput" placeholder="Describí tu proyecto aquí..." type="text">
+                            <input class="w-full bg-black/40 border border-white/10 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-cyber-cyan transition-all text-sm placeholder:text-slate-700" id="userInput" placeholder="Describí tu proyecto aquí..." type="text" onkeydown="if(event.key === 'Enter') enviarMensaje()">
                             <button class="absolute right-3 top-3 bg-white text-black font-black px-6 py-2 rounded-xl text-[10px] uppercase tracking-widest hover:bg-cyber-cyan transition-all active:scale-90" onclick="enviarMensaje()">
                                 Enviar <i class="fa-solid fa-bolt ml-1"></i>
                             </button>
@@ -277,62 +292,40 @@
             &copy; 2026 WizCode Studio — Diseñando Excelencia Digital.
         </div>
         <div class="flex gap-8">
-            <a class="text-slate-400 hover:text-white transition-all transform hover:-translate-y-1" href="https://github.com/pablowizard18" target="_blank"><i class="fa-brands fa-github text-xl"></i></a>
-            <a class="text-slate-400 hover:text-white transition-all transform hover:-translate-y-1" href="#"><i class="fa-brands fa-linkedin text-xl"></i></a>
+            <a class="text-slate-400 hover:text-white transition-all transform hover:-translate-y-1" href="https://github.com/pablowizard18"><i class="fa-brands fa-github text-xl"></i></a>
         </div>
     </div>
 </footer>
 
+<!-- SCRIPT PARA EL FUNCIONAMIENTO DEL CHATBOX -->
 <script>
-    // Camuflaje de llave para evitar escaneos automáticos de seguridad en GitHub
-    const claveCamuflada = 'AIzaSyC29svnVtJ7aHGUHTGjW-aHEoQbhMzYi-fo'; 
-    const MI_LLAVE = claveCamuflada.replace('-', '');
-    const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${MI_LLAVE}`;
-    const PERSONALIDAD = "Sos WizBot, el asistente inteligente de WizCode. Pablo es el fundador y desarrollador principal. Tu tono es profesional, tecnológico, servicial y amigable. Si el cliente menciona WordPress, Elementor, Bootstrap, Tailwind o SCSS, deciles que son las especialidades de la casa. Tu objetivo absoluto es pedirles un WhatsApp o Email para que Pablo se ponga en contacto con ellos y armar una propuesta a medida. Sé siempre conciso y directo.";
-
-    async function enviarMensaje() {
+    function enviarMensaje() {
         const input = document.getElementById('userInput');
-        const chat = document.getElementById('chatContainer');
-        const texto = input.value.trim();
-        if(!texto) return;
-
-        chat.innerHTML += `<div class="bg-gradient-to-r from-cyber-violet to-cyber-cyan text-zinc-950 font-bold px-6 py-4 max-w-[85%] rounded-[20px] rounded-tr-none shadow-2xl self-end text-sm leading-relaxed"><b>Vos:</b> ${texto}</div>`;
+        const container = document.getElementById('chatContainer');
+        const mensaje = input.value.trim();
+        
+        if (mensaje === '') return;
+        
+        // Agregar mensaje del usuario al chat
+        const userDiv = document.createElement('div');
+        userDiv.className = "bg-gradient-to-r from-cyber-violet to-cyber-cyan text-cyber-dark px-6 py-4 max-w-[85%] rounded-[20px] rounded-tr-none shadow-xl self-end text-sm font-medium leading-relaxed";
+        userDiv.innerHTML = `<b>Vos:</b> ${mensaje}`;
+        container.appendChild(userDiv);
+        
+        // Limpiar el input
         input.value = '';
-        chat.scrollTop = chat.scrollHeight;
-
-        const loadingId = 'load-' + Date.now();
-        chat.innerHTML += `<div class="bg-zinc-800/80 border border-white/5 text-slate-400 px-6 py-4 max-w-[85%] rounded-[20px] rounded-tl-none shadow-xl self-start text-sm italic" id="${loadingId}">✨ Procesando...</div>`;
-        chat.scrollTop = chat.scrollHeight;
-
-        try {
-            const payload = { contents: [{ parts: [{ text: `${PERSONALIDAD}\n\nCliente: ${texto}` }] }] };
-            const respuesta = await fetch(URL_API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-            const data = await respuesta.json();
-            
-            if (data && data.candidates[0].content.parts[0]) {
-                let textoBot = data.candidates[0].content.parts[0].text;
-                textoBot = textoBot.split('**').join('<b>').split('\n').join('<br>');
-                document.getElementById(loadingId).innerHTML = `<b>WizBot:</b> ${textoBot}`;
-                document.getElementById(loadingId).classList.remove('italic', 'text-slate-400');
-            }
-        } catch (error) {
-            document.getElementById(loadingId).innerHTML = `❌ Error de red. Intentá nuevamente en un instante.`;
-        }
-        chat.scrollTop = chat.scrollHeight;
+        container.scrollTop = container.scrollHeight;
+        
+        // Simular respuesta del bot
+        setTimeout(() => {
+            const botDiv = document.createElement('div');
+            botDiv.className = "bg-zinc-800/80 backdrop-blur-md border border-white/5 text-slate-200 px-6 py-4 max-w-[85%] rounded-[20px] rounded-tl-none shadow-xl self-start text-sm leading-relaxed";
+            botDiv.innerHTML = `🤖 <b>WizBot:</b> Recibí tu idea sobre "${mensaje}". Pablo va a revisar este concept de inmediato para armarte una propuesta a medida.`;
+            container.appendChild(botDiv);
+            container.scrollTop = container.scrollHeight;
+        }, 1000);
     }
-
-    document.getElementById('userInput').addEventListener('keypress', (e) => e.key === 'Enter' && enviarMensaje());
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('opacity-100', 'translate-y-0');
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section').forEach(el => {
-        el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-        observer.observe(el);
-    });
 </script>
+
 </body>
 </html>
